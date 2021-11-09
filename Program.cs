@@ -63,7 +63,7 @@
 
         public static void Main(string[] args)
         {
-            string version = "1.0";
+            string version = "1.1";
 
             //Reset log
             if (File.Exists(Constants.logFileName))
