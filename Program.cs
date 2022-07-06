@@ -63,7 +63,7 @@
 
         public static void Main(string[] args)
         {
-            string version = "1.1";
+            string version = "1.1.1";
 
             //Reset log
             if (File.Exists(Constants.logFileName))
@@ -85,11 +85,11 @@
             string[] fileURLs = new string[] {
                 "https://aka.ms/vs/16/release/VC_redist.x64.exe",
                 "https://aka.ms/vs/16/release/VC_redist.x86.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/9845b4b0-fb52-48b6-83cf-4c431558c29b/41025de7a76639eeff102410e7015214/dotnet-runtime-3.1.10-win-x64.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/2b83d30e-5c86-4d37-a1a6-582e22ac07b2/c7b1b7e21761bbfb7b9951f5b258806e/windowsdesktop-runtime-5.0.7-win-x64.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/c8af603e-ef3d-4bf3-89b9-f11dce1c2fc9/d416996ef55aa134b8aba565685d1ed2/windowsdesktop-runtime-5.0.7-win-x86.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/a865ccae-2219-4184-bcd6-0178dc580589/ba452d37e8396b7a49a9adc0e1a07e87/windowsdesktop-runtime-6.0.0-win-x64.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/a1ca7d0d-ce01-4878-b952-3fa1e6d9a7c6/e386db367490b631b8c013a9fb0f3794/windowsdesktop-runtime-6.0.0-win-x86.exe"
+                "https://download.visualstudio.microsoft.com/download/pr/a40ed796-b721-455e-bf17-574d905fd8d7/b5ce5020abaf4317855697cb5d085695/windowsdesktop-runtime-3.1.26-win-x64.exe",
+                "https://download.visualstudio.microsoft.com/download/pr/3aa4e942-42cd-4bf5-afe7-fc23bd9c69c5/64da54c8864e473c19a7d3de15790418/windowsdesktop-runtime-5.0.17-win-x64.exe",
+                "https://download.visualstudio.microsoft.com/download/pr/b6fe5f2a-95f4-46f1-9824-f5994f10bc69/db5ec9b47ec877b5276f83a185fdb6a0/windowsdesktop-runtime-5.0.17-win-x86.exe",
+                "https://download.visualstudio.microsoft.com/download/pr/9d6b6b34-44b5-4cf4-b924-79a00deb9795/2f17c30bdf42b6a8950a8552438cf8c1/windowsdesktop-runtime-6.0.6-win-x64.exe",
+                "https://download.visualstudio.microsoft.com/download/pr/cc04076c-d188-4c20-9b4f-89be06f1a39c/32da746ef46fbeedb4f609b67cb451c3/windowsdesktop-runtime-6.0.6-win-x86.exe"
             };
 
             int fileCount = fileURLs.Count();
