@@ -63,7 +63,7 @@
 
         public static void Main(string[] args)
         {
-            string version = "1.1.1";
+            string version = "1.2";
 
             //Reset log
             if (File.Exists(Constants.logFileName))
@@ -100,7 +100,7 @@
             //Intro
             Console.WriteLine("P4G PC All-in-One Prerequisite Installer v" + version + "\nby Pixelguin\n");
             Console.WriteLine("This program will download and run " + fileCount + " installers, one after the other.\nJust follow the instructions in this window.\n\nPress Enter to start.");
-            
+
             Console.ReadLine();
             Log("[USER] User pressed Enter to start downloading");
 
@@ -160,14 +160,23 @@
                     Console.WriteLine(launchText + "...");
                     Console.WriteLine(new string('=', launchText.Length + 3));
                     Log("[INFO] " + launchText);
-                    
-                    /*String for options that appear if the user has already installed the program + next steps to take
-                      Not currently very interesting but may be useful in the future if files change */
-                    string alreadyInstalledButtons = "Repair/Uninstall/Close";
-                    string alreadyInstalledActions = "Close => Yes";
 
-                    Console.WriteLine("\nIf the options given to you are " + alreadyInstalledButtons + ", you already have this installed.\nClick " + alreadyInstalledActions + " and the program will continue.");
-                    Console.WriteLine("\nIf you see something else, follow the installer's instructions.");
+                    /*String for options that appear depending if the user has already installed the program + next steps to take
+                      Not currently very interesting but may be useful in the future if files change */
+                    string notInstalledButtons = "Install/Close";
+                    string alreadyInstalledButtons = "Repair/Uninstall/Close";
+                    string alreadyInstalledActions = "Close -> Yes";
+
+                    if (fileName.Contains("VC_redist"))
+                    {
+                        Console.WriteLine("\nFollow the installer's instructions.");
+                        Console.WriteLine("\nIf you get a \"Setup Failed - 0x80070666\" error, you already have this runtime installed.\nClick Close and the program will continue.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nIf the options given to you are " + alreadyInstalledButtons + ", you already have this installed.\nClick " + alreadyInstalledActions + " and the program will continue.");
+                        Console.WriteLine("\nOtherwise, you should see " + notInstalledButtons + " - follow the installer's instructions.");
+                    }
 
                     //Launch installer and wait for it to close
                     myProcess.StartInfo.FileName = fileName;
