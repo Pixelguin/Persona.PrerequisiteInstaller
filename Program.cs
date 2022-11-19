@@ -63,7 +63,7 @@
 
         public static void Main(string[] args)
         {
-            string version = "1.3";
+            string version = "1.3.1";
 
             //Reset log
             if (File.Exists(Constants.logFileName))
@@ -85,11 +85,12 @@
             string[] fileURLs = new string[] {
                 "https://aka.ms/vs/16/release/VC_redist.x64.exe",
                 "https://aka.ms/vs/16/release/VC_redist.x86.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/6a9318dd-fec5-4df3-84df-ffd917b382ea/d3391ca5a4e14a8a96e04bbfa5c4c2dc/windowsdesktop-runtime-3.1.29-win-x64.exe",
+                "https://download.visualstudio.microsoft.com/download/pr/f68e8704-171f-47dc-88a5-40572a22319a/43a6b2785e73b2177a4401ceccd01ef3/windowsdesktop-runtime-3.1.31-win-x64.exe",
+                "https://download.visualstudio.microsoft.com/download/pr/df67c05e-3019-4d7f-846b-e08b92924b60/18a670ed3b1b60c5f7061f7bdaa6f7f6/windowsdesktop-runtime-3.1.31-win-x86.exe",
                 "https://download.visualstudio.microsoft.com/download/pr/3aa4e942-42cd-4bf5-afe7-fc23bd9c69c5/64da54c8864e473c19a7d3de15790418/windowsdesktop-runtime-5.0.17-win-x64.exe",
                 "https://download.visualstudio.microsoft.com/download/pr/b6fe5f2a-95f4-46f1-9824-f5994f10bc69/db5ec9b47ec877b5276f83a185fdb6a0/windowsdesktop-runtime-5.0.17-win-x86.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/21f395ec-4dcc-463e-aebe-be7290272558/1f05f6b2b8fd7b992947fae43ba45e00/windowsdesktop-runtime-7.0.0-rc.2.22472.13-win-x64.exe",
-                "https://download.visualstudio.microsoft.com/download/pr/9d37bfa6-73f1-491c-8c36-e443da3a6c15/2cd00958fe50c8d131f75ac6bc1dc93e/windowsdesktop-runtime-7.0.0-rc.2.22472.13-win-x86.exe"
+                "https://download.visualstudio.microsoft.com/download/pr/5b2fbe00-507e-450e-8b52-43ab052aadf2/79d54c3a19ce3fce314f2367cf4e3b21/windowsdesktop-runtime-7.0.0-win-x64.exe",
+                "https://download.visualstudio.microsoft.com/download/pr/d05a833c-2cf9-4d06-89ae-a0f3e10c5c91/c668ff42e23c2f67aa3d80227860585f/windowsdesktop-runtime-7.0.0-win-x86.exe"
             };
 
             int fileCount = fileURLs.Count();
