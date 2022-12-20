@@ -18,7 +18,7 @@ By accepting these terms, you also agree to the Microsoft Software License Terms
 https://visualstudio.microsoft.com/license-terms/vs2022-cruntime/
 https://dotnet.microsoft.com/en-us/dotnet_library_license.htm
 
-Last updated: 14 December 2022
+Last updated: 20 December 2022
 '''
 
 # Installer class
