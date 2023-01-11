@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 # Version and repository info
 web_version_latest = 2.0
 web_version_supported = 2.0
-web_repository = 'https://github.com/Pixelguin/P4GPC.PrerequisiteInstaller/releases/latest'
+web_repository = 'https://github.com/Pixelguin/Persona.PrerequisiteInstaller/releases/latest'
 
 # Terms of use
 web_terms = '''

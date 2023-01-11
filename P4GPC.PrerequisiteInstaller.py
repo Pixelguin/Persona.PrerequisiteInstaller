@@ -21,7 +21,7 @@ INSTALL_LOGS_DIR = LOGS_DIR / 'installers'
 WEB_FILE = 'web_data.py'
 LOGS_FILE = LOGS_DIR / f"{PROGRAM_NAME_SHORT}Log_{time.strftime('%Y%m%d-%H%M%S')}.txt"
 
-WEB_URL = f'https://raw.githubusercontent.com/Pixelguin/P4GPC.PrerequisiteInstaller/master/{WEB_FILE}'
+WEB_URL = f'https://raw.githubusercontent.com/Pixelguin/Persona.PrerequisiteInstaller/master/{WEB_FILE}'
 
 # Create directories
 if not os.path.exists(DOWNLOADS_DIR):
