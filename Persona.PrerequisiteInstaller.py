@@ -169,10 +169,10 @@ from web_data import *
 
 # Check if this version is supported
 if VERSION < web_version_supported:
-    fatal_error(f'This version of {PROGRAM_NAME} is too old - Cannot continue!\nDownload the latest release ({web_version_latest}) at {web_repository}')
+    fatal_error(f'This version of {PROGRAM_NAME} is too old - Cannot continue!\nDownload the latest release ({web_version_latest}) at\n{web_repository}')
 else:
     if VERSION < web_version_latest:
-        log.warning(f'Version {web_version_latest} of {PROGRAM_NAME} is available, but this version is still supported.\nIf something goes wrong during installation, try the latest release at {web_repository}\n')
+        log.warning(f'Version {web_version_latest} of {PROGRAM_NAME} is available, but this version is still supported.\nIf something goes wrong during installation, try the latest release at\n{web_repository}\n')
 
     log.info('Ready! Press Enter to begin...')
     input()
