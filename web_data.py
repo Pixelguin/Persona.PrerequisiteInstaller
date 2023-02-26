@@ -41,8 +41,8 @@ class Installer:
 
 # web_installers array
 web_installers = [
-    Installer('Visual C++ x64 Redistributable', 'https://aka.ms/vs/17/release/vc_redist.x64.exe', 'a66ea382d8bdd31491627fd698242d2eda38b1d9df762c402923ef40bbca6aa2f43f22fa811c5fc894b529f9e77fcdd5ced9cd8af4a19f53845fce3780e8c041'),
-    Installer('Visual C++ x86 Redistributable', 'https://aka.ms/vs/17/release/vc_redist.x86.exe', '02b959b3f008e70674f3fbb119601701057a0b3620e897a1b514a93ef22e930841d776d81506c0dc1d5d17899188ff489772ea5f9ae2f263fc1e304ebb7a491f'),
+    Installer('Visual C++ x64 Redistributable', 'https://aka.ms/vs/17/release/vc_redist.x64.exe', '9be541f26b5d43cee1766239d8880ab7d30d18fea2f17e28d63a498b30b7dd0918f389805398cb56b0df0df17c8633cb73f9e46672c93b21be04b85bda7a2648'),
+    Installer('Visual C++ x86 Redistributable', 'https://aka.ms/vs/17/release/vc_redist.x86.exe', '28cf976fa51e4c7abb57fd8fcde6381f1e140407924ef265fde6e59546fb6fdeb803f388a5d1e9e74fb80d47ce5fd9f275aaf41258a09002fba27c2cbbc2df4d'),
     Installer('.NET 3.1 x64 Desktop Runtime',   'https://download.visualstudio.microsoft.com/download/pr/b92958c6-ae36-4efa-aafe-569fced953a5/1654639ef3b20eb576174c1cc200f33a/windowsdesktop-runtime-3.1.32-win-x64.exe', '426add7ee806ff3e50e348bd294d406594c44d2a2894b037b1f871999ed9cce685f4fefac3828cd814897a2e40147647d03ba521d952a66bfe18c85767b40603'),
     Installer('.NET 5.0 x64 Desktop Runtime',   'https://download.visualstudio.microsoft.com/download/pr/3aa4e942-42cd-4bf5-afe7-fc23bd9c69c5/64da54c8864e473c19a7d3de15790418/windowsdesktop-runtime-5.0.17-win-x64.exe', 'f7eb69a953ff6346a180e5200075120b4b47cb89a75bc36c76a9e468c037bb2376f497dbf8e0bada152bc3ec35dceaad55d0a811586569575bf5b201d1e32baf'),
     Installer('.NET 5.0 x86 Desktop Runtime',   'https://download.visualstudio.microsoft.com/download/pr/b6fe5f2a-95f4-46f1-9824-f5994f10bc69/db5ec9b47ec877b5276f83a185fdb6a0/windowsdesktop-runtime-5.0.17-win-x86.exe', '74a379323e52172f563cd996880f58d58a19303ae59b3f55ff52625dfe8a4a602609785b1174b38f2da97282f90f1ade53194354f48773512943eae249926ee8'),
