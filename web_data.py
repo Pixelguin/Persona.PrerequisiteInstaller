@@ -10,7 +10,6 @@ web_repository = 'https://github.com/Pixelguin/Persona.PrerequisiteInstaller/rel
 web_version_latest = 2.1
 web_version_supported = 2.1
 
-
 # Terms of use
 web_terms = '''
 =====TERMS OF USE=====
