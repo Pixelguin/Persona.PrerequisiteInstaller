@@ -1,4 +1,5 @@
 import ctypes, logging, os, requests, subprocess, sys, time
+from packaging import version
 from pathlib import Path
 from simple_file_checksum import get_checksum
 DEV = False
@@ -10,7 +11,7 @@ else:
 
 PROGRAM_NAME = 'All-In-One Prerequisite Installer'
 PROGRAM_NAME_SHORT = 'pi'
-VERSION = 2.1
+VERSION = "2.1"
 
 # Set directory paths
 SETUP_DIR = Path(os.getcwd())
@@ -171,11 +172,11 @@ if os.path.exists(WEB_FILE):
 from web_data import *
 
 # Check if this version is supported
-if VERSION < web_version_supported:
-    fatal_error(f'This version of {PROGRAM_NAME} is too old - Cannot continue!\nDownload the latest release ({web_version_latest}) at\n{web_repository}')
+if version.parse(VERSION) < version.parse(web_version_supported_v2):
+    fatal_error(f'This version of {PROGRAM_NAME} is too old - Cannot continue!\nDownload the latest release ({web_version_latest_v2}) at\n{web_repository}')
 else:
-    if VERSION < web_version_latest:
-        log.warning(f'Version {web_version_latest} of {PROGRAM_NAME} is available, but this version is still supported.\nIf something goes wrong during installation, try the latest release at\n{web_repository}\n')
+    if version.parse(VERSION) < version.parse(web_version_latest_v2):
+        log.warning(f'Version {web_version_latest_v2} of {PROGRAM_NAME} is available, but this version is still supported.\nIf something goes wrong during installation, try the latest release at\n{web_repository}\n')
 
     log.info('Ready! Press Enter to begin...')
     input()
