@@ -157,13 +157,16 @@ log.info('Downloading the latest configuration data...\n')
 
 if os.path.exists(WEB_FILE):
     if DEV:
+        # Do nothing and use local file
         log.debug(f'[DEV] Using local {WEB_FILE}')
     else:
+        # Delete existing local file
         log.debug(f'{WEB_FILE} exists, deleting...')
         os.remove(WEB_FILE)
-
-if download_file(WEB_FILE, WEB_URL) >= 400:
-    fatal_error(f'Failed to download configuration data - Cannot continue!\nCheck your Internet connection and make sure you have the latest release of {PROGRAM_NAME}.')
+        
+        # Download new file
+        if download_file(WEB_FILE, WEB_URL) >= 400:
+            fatal_error(f'Failed to download configuration data - Cannot continue!\nCheck your Internet connection and make sure you have the latest release of {PROGRAM_NAME}.')
 
 from web_data import *
 
