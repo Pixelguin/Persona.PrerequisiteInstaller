@@ -1,0 +1,4 @@
+requests
+packaging
+simple-file-checksum
+pyinstaller

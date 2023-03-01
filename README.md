@@ -3,7 +3,6 @@
 ## Build
 
 ```bat
-pip install simple-file-checksum
-pip install pyinstaller
+pip install -r dependencies.txt
 pyinstaller -F --uac-admin --exclude-module web_data Persona.PrerequisiteInstaller.py
 ```
