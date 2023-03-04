@@ -82,7 +82,7 @@ def prompt_complex(prompt, acceptable_responses):
 
     Args:
         prompt (str): The prompt message to show the user
-        acceptable responses (list[str]): A list of acceptable responses
+        acceptable_responses (list[str]): A list of acceptable responses
 
     Returns:
         str: The acceptable response given by the user
