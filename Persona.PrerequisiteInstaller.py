@@ -56,8 +56,16 @@ log.debug(f'Created {LOGS_FILE}\n')
 
 def fatal_error(message):
     '''
-    Output critical error message and log file path.
-    Prompt user to press Enter, then end the program.
+    Output a critical error message and the log file path, then end the program.
+
+    This function outputs a critical error message to the console and log along with a path to the console log file.
+    It then prompts the user to press Enter, which ends the program.
+
+    Args:
+        message (str): The critical error message to output.
+
+    Returns:
+        None
     '''
 
     log.critical(f'\n{message}\nA log is available at {LOGS_FILE}\n\nPress Enter to end the program...')
@@ -66,9 +74,18 @@ def fatal_error(message):
 
 def prompt_complex(prompt, acceptable_responses):
     '''
-    Prompt user for a string response.
-    If the response is one of the acceptable responses in a given array, return that response.
-    Else, inform the user of acceptable responses and repeat the prompt.
+    Prompt the user for a string response and verify it is in a list of acceptable responses.
+
+    This function prompts the user for a string response, then checks if it is in a list of acceptable responses.
+    If the response is acceptable, the function returns that response.
+    Else, the user is shown a list of acceptable responses and the prompt is repeated until an acceptable response is given.
+
+    Args:
+        prompt (str): The prompt message to show the user
+        acceptable responses (list[str]): A list of acceptable responses
+
+    Returns:
+        str: The acceptable response given by the user
     '''
 
     response = ''
@@ -84,8 +101,17 @@ def prompt_complex(prompt, acceptable_responses):
 
 def prompt_yn(prompt):
     '''
-    Run prompt_complex with pre-defined acceptable responses for yes/no.
-    Return True for 'yes' or False for 'no'. 
+    Prompts the user for a yes or no response using the prompt_complex function.
+
+    This program prompts the user for a yes/no response, then checks if it is in a list of acceptable "yes" or "no" responses.
+    If the response is acceptable, the function returns True (yes) or False (no).
+    Else, the user is shown a list of acceptable responses and the prompt is repeated until an acceptable response is given.
+
+    Args:
+        prompt (str): The yes/no prompt message to show the user
+
+    Returns:
+        bool: True if the user responds with 'yes' or 'y', False if the user responds with 'no' or 'n'
     '''
 
     response = prompt_complex(prompt, ['y', 'n', 'yes', 'no'])
@@ -93,8 +119,18 @@ def prompt_yn(prompt):
 
 def download_file(path, url):
     '''
-    Download a file from a given URL and save it to a given path.
-    Return the response status code.
+    Download and save a file from a URL.
+
+    This function downloads a file from a given URL and saves it to a given path.
+    If a response status code is recieved, the function returns that code.
+    Else, the function returns 9999 and logs that the download has failed.
+
+    Args:
+        path(str): The path to save the file to after downloading
+        url(str): The URL to download the file from
+    
+    Returns:
+        int: The response status code, or 9999 if the download failed
     '''
     
     log.debug(f'Downloading {path} from {url}')
@@ -115,8 +151,18 @@ def download_file(path, url):
 
 def verify_checksum(file, checksum_correct):
     '''
-    Calculate a file's SHA-512 checksum and compare it to a known correct checksum.
-    Return true if checksums match, or false if checksums do not match.
+    Verify a file's SHA-512 checksum is correct.
+
+    This function calculates a file's SHA-512 checksum using the simple_file_checksum library and compares it to a known correct checksum.
+    If the checksums match, the function returns True.
+    Else, the function returns false.
+
+    Args:
+        file(Path): The path of the file to be verified
+        checksum_correct: The known correct checksum to verify the file against
+
+    Returns:
+        bool: True if the checksums match, False if the checksums do not match
     '''
 
     checksum_calculated = get_checksum(file, algorithm = 'SHA512')
