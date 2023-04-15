@@ -18,7 +18,7 @@ else:
 
 PROGRAM_NAME = 'All-In-One Prerequisite Installer'
 PROGRAM_NAME_SHORT = 'pi'
-VERSION = '2.2'
+VERSION = '2.2.1'
 
 # Set directory paths
 SETUP_DIR = Path(os.getcwd())
