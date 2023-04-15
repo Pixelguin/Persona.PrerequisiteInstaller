@@ -1,7 +1,14 @@
-import ctypes, logging, os, requests, subprocess, sys, time
-from packaging import version
+# Native libraries
+import logging, os, subprocess, sys
+from ctypes import windll
 from pathlib import Path
+from time import strftime
+
+# External libraries
+from packaging import version
+from requests import get as web_get
 from simple_file_checksum import get_checksum
+
 DEV = False
 
 if DEV:
@@ -11,7 +18,7 @@ else:
 
 PROGRAM_NAME = 'All-In-One Prerequisite Installer'
 PROGRAM_NAME_SHORT = 'pi'
-VERSION = "2.2"
+VERSION = '2.2'
 
 # Set directory paths
 SETUP_DIR = Path(os.getcwd())
@@ -20,7 +27,7 @@ LOGS_DIR = SETUP_DIR / f'{PROGRAM_NAME_SHORT}_logs'
 INSTALL_LOGS_DIR = LOGS_DIR / 'installers'
 
 WEB_FILE = 'web_data.py'
-LOGS_FILE = LOGS_DIR / f"{PROGRAM_NAME_SHORT}Log_{time.strftime('%Y%m%d-%H%M%S')}.txt"
+LOGS_FILE = LOGS_DIR / f"{PROGRAM_NAME_SHORT}Log_{strftime('%Y%m%d-%H%M%S')}.txt"
 
 WEB_URL = f'https://raw.githubusercontent.com/Pixelguin/Persona.PrerequisiteInstaller/master/{WEB_FILE}'
 
@@ -137,7 +144,7 @@ def download_file(path, url):
 
     with open(path,'wb') as download:
         try:
-            response = requests.get(url, allow_redirects=True)
+            response = web_get(url, allow_redirects=True)
             download.write(response.content)
         except:
             log.debug(f'Failed to download {path}!')
@@ -186,8 +193,8 @@ if DEV:
 try:
     is_admin = (os.getuid() == 0)
 except AttributeError:
-    log.debug('AttributeError thrown when using os.getuid(), trying ctypes method')
-    is_admin = (ctypes.windll.shell32.IsUserAnAdmin() != 0)
+    log.debug('AttributeError thrown when using os.getuid(), trying windll method')
+    is_admin = (windll.shell32.IsUserAnAdmin() != 0)
 
 log.debug(f'is_admin returned {is_admin}')
 
@@ -245,7 +252,7 @@ else:
 
 # Prompt user to choose between Quiet and Manual Mode
 os.system('cls') # Clear screen
-log.info(f'''{PROGRAM_NAME} has the option to run in Quiet Mode or Manual Mode.
+log.info(f'''{PROGRAM_NAME} can run in Quiet Mode or Manual Mode.
 
 Quiet Mode will automatically install each prerequisite after it is downloaded.
 All you need to do is sit back and watch the installer work its magic!
