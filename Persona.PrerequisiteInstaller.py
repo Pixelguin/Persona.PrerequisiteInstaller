@@ -92,14 +92,20 @@ def prompt_complex(prompt, acceptable_responses):
 
     response = ''
     while response not in acceptable_responses:
-        log.info(f'======================\n\n{prompt}')
-        response = input()
-        log.debug(f'User response: {response}')
+        try:
+            log.info(f'======================\n\n{prompt}')
+            response = input()
+            log.debug(f'User response: {response}')
 
-        if response in acceptable_responses:
-            return response
-        else:
-            log.warning(f"\nSorry, I didn't understand '{response}'.\nAcceptable responses are: {acceptable_responses}\n")
+            if response in acceptable_responses:
+                return response
+            else:
+                log.warning(f"\nSorry, I didn't understand '{response}'.\nAcceptable responses are: {acceptable_responses}\n")
+
+        # Output a fatal error if the user escapes the program (Ctrl+D, Ctrl+C, etc.)    
+        except (EOFError, KeyboardInterrupt):
+            fatal_error('User exited the program while it was waiting for input - Cannot continue!')
+            break
 
 def prompt_yn(prompt):
     '''
