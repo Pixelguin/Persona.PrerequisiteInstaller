@@ -32,14 +32,9 @@ LOGS_FILE = LOGS_DIR / f"{PROGRAM_NAME_SHORT}Log_{strftime('%Y%m%d-%H%M%S')}.txt
 WEB_URL = f'https://raw.githubusercontent.com/Pixelguin/Persona.PrerequisiteInstaller/master/{WEB_FILE}'
 
 # Create directories
-if not os.path.exists(DOWNLOADS_DIR):
-    os.makedirs(DOWNLOADS_DIR)
-
-if not os.path.exists(LOGS_DIR):
-    os.makedirs(LOGS_DIR)
-
-if not os.path.exists(INSTALL_LOGS_DIR):
-    os.makedirs(INSTALL_LOGS_DIR)
+os.makedirs(DOWNLOADS_DIR, exist_ok = True)
+os.makedirs(LOGS_DIR, exist_ok = True)
+os.makedirs(INSTALL_LOGS_DIR, exist_ok = True)
 
 # Create logger
 log = logging.getLogger('logger')
