@@ -81,6 +81,8 @@ def prompt_complex(prompt, acceptable_responses):
     This function prompts the user for a string response, then checks if it is in a list of acceptable responses.
     If the response is acceptable, the function returns that response.
     Else, the user is shown a list of acceptable responses and the prompt is repeated until an acceptable response is given.
+    
+    Exceptions that end the program during input are handled by outputting a fatal error notifying the user what happened.
 
     Args:
         prompt (str): The prompt message to show the user
