@@ -155,8 +155,12 @@ def download_file(path, url):
         
         # If request was successful, open file for writing and write content from the URL
         if response.ok:
+            # Download file in 1KB chunks
             with open(path,'wb') as download:
-                download.write(response.content)
+                for chunk in response.iter_content(chunk_size = 1024):
+                    if chunk:
+                        download.write(chunk)
+            log.debug(f'Finished downloading {path}!')
                 
             # If redirect history is not empty, log redirect
             if response.history:
