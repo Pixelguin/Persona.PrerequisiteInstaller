@@ -16,8 +16,8 @@ if DEV:
 else:
     sys.path.append(os.path.dirname(sys.executable)) # Needed to import web file as module at runtime, see https://stackoverflow.com/a/47388482
 
-PROGRAM_NAME = 'All-In-One Prerequisite Installer'
-PROGRAM_NAME_SHORT = 'pi'
+PROGRAM_NAME = 'Persona Prerequisite Installer'
+PROGRAM_NAME_SHORT = 'ppi'
 VERSION = '2.2.2'
 
 # Set directory paths
@@ -225,7 +225,7 @@ def verify_checksum(file, checksum_correct):
 '''
 PROGRAM START
 '''
-log.info(f'Persona Modding: {PROGRAM_NAME} {VERSION}\nby Pixelguin\n')
+log.info(f'{PROGRAM_NAME} {VERSION}\nby Pixelguin\n')
 if DEV:
     log.info('===! DEV IS ENABLED !===\n')
 
