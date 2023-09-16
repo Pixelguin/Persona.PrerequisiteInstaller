@@ -131,33 +131,50 @@ def download_file(path, url):
     '''
     Download and save a file from a URL.
 
-    This function downloads a file from a given URL and saves it to a given path.
-    If a response status code is recieved, the function returns that code.
-    Else, the function returns 9999 and logs that the download has failed.
+    This function sends a GET request to a given file URL.
+    If the request is successful, it downloads the file and saves it to a given path.
+    If the request was redirected, it logs the final URL after redirection.
+    If the request was unsuccessful, it logs a failure to download.
+
+    In all cases, the function logs the response status code and reason.
+    If an exception occurs at any point, it is caught.
 
     Args:
         path(str): The path to save the file to after downloading
         url(str): The URL to download the file from
     
     Returns:
-        int: The response status code, or 9999 if the download failed
+        bool: True if the file was downloaded successfully, False otherwise.
     '''
     
     log.debug(f'Downloading {path} from {url}')
 
-    with open(path,'wb') as download:
-        try:
-            response = web_get(url, allow_redirects=True)
-            download.write(response.content)
-        except:
-            log.debug(f'Failed to download {path}!')
-            return 9999
-
-        if response.is_redirect:
-            log.debug(f'Download was redirected to {response.url}')
+    try:
+        # Send GET request
+        response = web_get(url, allow_redirects=True)
         
-        log.debug(f'Got response status {response.status_code}')
-        return response.status_code
+        # If request was successful, open file for writing and write content from the URL
+        if response.ok:
+            with open(path,'wb') as download:
+                download.write(response.content)
+                
+            # If redirect history is not empty, log redirect
+            if response.history:
+                log.debug(f'Download was redirected to {response.url}')
+
+        # If request was unsuccessful, log failure
+        else:
+            log.debug(f'Response for {path} was not OK!')
+
+        # Log response info and reason
+        log.debug(f'Got status code {response.status_code} - {response.reason}')
+
+        # Return True if successful, False if not
+        return (response.ok)
+
+    except:
+        log.debug(f'Failed to download {path}!')
+        return False
 
 def verify_checksum(file, checksum_correct):
     '''
@@ -220,8 +237,8 @@ else:
         log.debug(f'{WEB_FILE} exists, deleting...')
         os.remove(WEB_FILE)  
     
-    # Download new file
-    if download_file(WEB_FILE, WEB_URL) >= 400:
+    # Download new file 
+    if not download_file(WEB_FILE, WEB_URL):
         fatal_error(f'Failed to download configuration data - Cannot continue!\nCheck your Internet connection and make sure you have the latest release of {PROGRAM_NAME}.')
 
 from web_data import *
@@ -302,7 +319,7 @@ for my_installer in web_installers:
     if not file_verified:
         log.info(f'Downloading {my_installer.get_filename()} from {my_installer.get_host()}...')
 
-        if download_file(file, my_installer.url) < 400:
+        if download_file(file, my_installer.url):
             log.info('Verifying checksum...')
             if verify_checksum(file, my_installer.checksum):
                 log.info('Checksum is OK.\n')
