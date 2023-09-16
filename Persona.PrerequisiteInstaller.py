@@ -37,10 +37,26 @@ os.makedirs(LOGS_DIR, exist_ok = True)
 os.makedirs(INSTALL_LOGS_DIR, exist_ok = True)
 
 # Create logger
+LOG_FILE_INDENT = 11
+
 log = logging.getLogger('logger')
 log.setLevel(logging.DEBUG)
 
-file_formatter = logging.Formatter('>%(levelname)-10s %(message)s') # Show level in log file but not console
+class MultilineIndentFormatter(logging.Formatter):
+    '''
+    Custom log formatter for multiline messages.
+
+    This formatter modifies logging.Formatter to add a fixed number of spaces to newline characters.
+    This ensures multiline log messages in file_formatter are properly indented.
+
+    Returns:
+        str: The formatted message.
+    '''
+    def format(self, record):
+        s = super().format(record)
+        return s.replace('\n', '\n' + ' ' * int(LOG_FILE_INDENT + 1))
+
+file_formatter = MultilineIndentFormatter(f'>%(levelname)-{LOG_FILE_INDENT}s%(message)s') # Show level in log file but not console
 console_formatter = logging.Formatter('%(message)s')
 
 file_handler = logging.FileHandler(LOGS_FILE, mode = 'w', encoding = 'utf-8')
