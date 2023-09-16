@@ -18,7 +18,7 @@ else:
 
 PROGRAM_NAME = 'Persona Prerequisite Installer'
 PROGRAM_NAME_SHORT = 'ppi'
-VERSION = '2.2.2'
+VERSION = '2.3'
 
 # Set directory paths
 SETUP_DIR = Path(os.getcwd())
