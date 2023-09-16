@@ -1,12 +1,15 @@
 # Native libraries
-import logging, os, subprocess, sys
-from ctypes import windll
+import ctypes
+import logging
+import os
+import subprocess
+import sys
 from pathlib import Path
-from time import strftime
+import time
 
 # External libraries
 from packaging import version
-from requests import get as web_get
+import requests
 from simple_file_checksum import get_checksum
 
 DEV = False
@@ -27,7 +30,7 @@ LOGS_DIR = SETUP_DIR / f'{PROGRAM_NAME_SHORT}_logs'
 INSTALL_LOGS_DIR = LOGS_DIR / 'installers'
 
 WEB_FILE = 'web_data.py'
-LOGS_FILE = LOGS_DIR / f"{PROGRAM_NAME_SHORT}Log_{strftime('%Y%m%d-%H%M%S')}.txt"
+LOGS_FILE = LOGS_DIR / f"{PROGRAM_NAME_SHORT}Log_{time.strftime('%Y%m%d-%H%M%S')}.txt"
 
 WEB_URL = f'https://raw.githubusercontent.com/Pixelguin/Persona.PrerequisiteInstaller/master/{WEB_FILE}'
 
@@ -167,7 +170,7 @@ def download_file(path, url):
 
     try:
         # Send GET request
-        response = web_get(url, allow_redirects=True)
+        response = requests.get(url, allow_redirects=True)
         
         # If request was successful, open file for writing and write content from the URL
         if response.ok:
@@ -233,8 +236,8 @@ if DEV:
 try:
     is_admin = (os.getuid() == 0)
 except AttributeError:
-    log.debug('AttributeError thrown when using os.getuid(), trying windll method')
-    is_admin = (windll.shell32.IsUserAnAdmin() != 0)
+    log.debug('AttributeError thrown when using os.getuid(), trying ctypes.windll method')
+    is_admin = (ctypes.windll.shell32.IsUserAnAdmin() != 0)
 
 log.debug(f'is_admin returned {is_admin}')
 
