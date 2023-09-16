@@ -187,7 +187,7 @@ def download_file(path, url):
 
         # If request was unsuccessful, log failure
         else:
-            log.debug(f'Response for {path} was not OK!')
+            log.debug(f'Response for {url} was not OK!')
 
         # Log response info and reason
         log.debug(f'Got status code {response.status_code} - {response.reason}')
@@ -196,7 +196,7 @@ def download_file(path, url):
         return (response.ok)
 
     except:
-        log.debug(f'Failed to download {path}!')
+        log.debug(f'Failed to download from {url}!')
         return False
 
 def verify_checksum(file, checksum_correct):
