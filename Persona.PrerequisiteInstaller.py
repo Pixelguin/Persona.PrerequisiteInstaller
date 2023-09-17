@@ -21,7 +21,7 @@ else:
 
 PROGRAM_NAME = 'Persona Prerequisite Installer'
 PROGRAM_NAME_SHORT = 'ppi'
-VERSION = '2.3'
+VERSION = '2.3.1'
 
 DIVIDER = '======================'
 
