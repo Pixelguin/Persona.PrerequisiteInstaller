@@ -23,6 +23,8 @@ PROGRAM_NAME = 'Persona Prerequisite Installer'
 PROGRAM_NAME_SHORT = 'ppi'
 VERSION = '2.3'
 
+DIVIDER = '======================'
+
 # Set directory paths
 SETUP_DIR = Path(os.getcwd())
 DOWNLOADS_DIR = SETUP_DIR.joinpath(f'{PROGRAM_NAME_SHORT}_downloads')
@@ -114,7 +116,7 @@ def prompt_complex(prompt, acceptable_responses):
     response = ''
     while response not in acceptable_responses:
         try:
-            log.info(f'======================\n\n{prompt}')
+            log.info(f'{DIVIDER}\n\n{prompt}')
             response = input()
             log.debug(f'User response: {response}')
 
@@ -324,7 +326,7 @@ for my_installer in web_installers:
     loop_count += 1
 
     # Print installer name and filename
-    log.info(f'======================\n\n({loop_count}/{len(web_installers)}) {my_installer.name}\n')
+    log.info(f'{DIVIDER}\n\n({loop_count}/{len(web_installers)}) {my_installer.name}\n')
     log.debug(f'success_count = {success_count}')
 
     # Check if file already exists and verify checksum
@@ -383,7 +385,7 @@ for my_installer in web_installers:
             success_count += 1
 
 # Finished
-log.info(f'======================\n\nSuccessfully installed {success_count}/{len(web_installers)} prerequisite(s)!')
+log.info(f'{DIVIDER}\n\nSuccessfully installed {success_count}/{len(web_installers)} prerequisite(s)!')
 
 if restart_count > 0:
     log.warning(f'Please restart your PC to complete the installation of {restart_count} prerequisite(s).\n')
