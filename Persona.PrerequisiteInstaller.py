@@ -25,12 +25,12 @@ VERSION = '2.3'
 
 # Set directory paths
 SETUP_DIR = Path(os.getcwd())
-DOWNLOADS_DIR = SETUP_DIR / f'{PROGRAM_NAME_SHORT}_downloads'
-LOGS_DIR = SETUP_DIR / f'{PROGRAM_NAME_SHORT}_logs'
-INSTALL_LOGS_DIR = LOGS_DIR / 'installers'
+DOWNLOADS_DIR = SETUP_DIR.joinpath(f'{PROGRAM_NAME_SHORT}_downloads')
+LOGS_DIR = SETUP_DIR.joinpath(f'{PROGRAM_NAME_SHORT}_logs')
+INSTALL_LOGS_DIR = LOGS_DIR.joinpath('installers')
 
 WEB_FILE = 'web_data.py'
-LOGS_FILE = LOGS_DIR / f"{PROGRAM_NAME_SHORT}Log_{time.strftime('%Y%m%d-%H%M%S')}.txt"
+LOGS_FILE = LOGS_DIR.joinpath(f"{PROGRAM_NAME_SHORT}Log_{time.strftime('%Y%m%d-%H%M%S')}.txt")
 
 WEB_URL = f'https://raw.githubusercontent.com/Pixelguin/Persona.PrerequisiteInstaller/master/{WEB_FILE}'
 
@@ -318,7 +318,7 @@ restart_count = 0
 # Download and run installers
 for my_installer in web_installers:
     # Variables and flags
-    file = DOWNLOADS_DIR / my_installer.get_filename()
+    file = DOWNLOADS_DIR.joinpath(my_installer.get_filename())
     file_verified = False
     file_installed = False
     loop_count += 1
@@ -356,7 +356,7 @@ for my_installer in web_installers:
     if file_verified:
         log.info(f'{install_mode[0].upper()}{install_mode[1:]}ly installing {my_installer.name}...')
 
-        install_log = INSTALL_LOGS_DIR / f'{my_installer.get_filename()}-Install.log' #Installation log
+        install_log = INSTALL_LOGS_DIR.joinpath(f'{my_installer.get_filename()}-Install.log') #Installation log
         log.debug(f'A log is available at {install_log}')
 
         install_args = [file, '/install', '/norestart', '/log', install_log]
