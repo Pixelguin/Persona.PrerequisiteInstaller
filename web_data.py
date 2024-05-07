@@ -14,6 +14,8 @@ web_version_supported = 2.3
 web_terms = '''
 =====TERMS OF USE=====
 
+This program is provided "as-is" without any warranty, expressed or implied.
+
 I am not responsible for anything that happens to any device this program runs on,
 including anything that happens as a result of the installers this program downloads.
 All responsibility resides with the user running the program.
@@ -22,7 +24,7 @@ By accepting these terms, you also agree to the Microsoft Software License Terms
 https://visualstudio.microsoft.com/license-terms/vs2022-cruntime/
 https://dotnet.microsoft.com/en-us/dotnet_library_license.htm
 
-Last updated: 20 December 2022
+Last updated: 06 May 2024
 '''
 
 # Installer class
