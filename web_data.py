@@ -14,7 +14,7 @@ web_version_supported = 2.3
 web_terms = '''
 =====TERMS OF USE=====
 
-From the GNU Affero General Public License (AGPL), version 3:
+Based on the GNU Affero General Public License (AGPL), version 3:
 
 THIS PROGRAM IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
