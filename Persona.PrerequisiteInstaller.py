@@ -21,7 +21,7 @@ else:
 
 PROGRAM_NAME = 'Persona Prerequisite Installer'
 PROGRAM_NAME_SHORT = 'ppi'
-VERSION = '2.3.1'
+VERSION = '3.0.0'
 
 DIVIDER = '======================'
 
@@ -34,7 +34,7 @@ INSTALL_LOGS_DIR = LOGS_DIR.joinpath('installers')
 WEB_FILE = 'web_data.py'
 LOGS_FILE = LOGS_DIR.joinpath(f"{PROGRAM_NAME_SHORT}Log_{time.strftime('%Y%m%d-%H%M%S')}.txt")
 
-WEB_URL = f'https://raw.githubusercontent.com/Pixelguin/Persona.PrerequisiteInstaller/master/{WEB_FILE}'
+WEB_URL = f'https://raw.githubusercontent.com/MadMax1960/Persona.PrerequisiteInstaller/master/{WEB_FILE}'
 
 # Create directories
 os.makedirs(DOWNLOADS_DIR, exist_ok = True)
@@ -230,7 +230,7 @@ def verify_checksum(file, checksum_correct):
 '''
 PROGRAM START
 '''
-log.info(f'{PROGRAM_NAME} {VERSION}\nby Pixelguin\n')
+log.info(f'{PROGRAM_NAME} {VERSION}\nOriginal program by Pixelguin\nForked and maintained by MadMax1960\n')
 if DEV:
     log.info('===! DEV IS ENABLED !===\n')
 

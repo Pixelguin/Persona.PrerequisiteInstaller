@@ -2,13 +2,9 @@ import os
 from urllib.parse import urlparse
 
 # Version and repository info
-web_version_latest_v2 = '2.3.1'
-web_version_supported_v2 = '2.3.1'
-web_repository = 'https://github.com/Pixelguin/Persona.PrerequisiteInstaller/releases/latest'
-
-# Legacy version info (before packaging.version was implemented)
-web_version_latest = 2.3
-web_version_supported = 2.3
+web_version_latest_v2 = '3.0.0'
+web_version_supported_v2 = '3.0.0'
+web_repository = 'https://github.com/MadMax1960/Persona.PrerequisiteInstaller/releases/latest'
 
 # Terms of use
 web_terms = '''
